@@ -1,12 +1,12 @@
 import { RoleDto } from './role.dto';
-import { IsNotEmpty, Length } from 'class-validator';
+//import { IsNotEmpty, Length } from 'class-validator';
 
 export class GroupCreateDto {
-  @IsNotEmpty()
-  @Length(2, 30)
+  //@IsNotEmpty()
+  //@Length(2, 30)
   name: string;
-  @IsNotEmpty()
-  @Length(2, 130)
+  //@IsNotEmpty()
+  //@Length(2, 130)
   description: string;
 }
 

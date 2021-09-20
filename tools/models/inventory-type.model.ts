@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+//import * as mongoose from 'mongoose';
 import { AuditModel } from './audit.model';
 
 export class InventoryTypeModel {
@@ -7,11 +7,11 @@ export class InventoryTypeModel {
   audit: AuditModel;
 }
 
-export const InventoryTypeSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    unique: [true, 'Inventory Type Name must be unique'],
-    required: [true, 'Inventory Type Name is required'],
-  },
-  audit: { type: Object },
-});
+// export const InventoryTypeSchema = new mongoose.Schema({
+//   name: {
+//     type: String,
+//     unique: [true, 'Inventory Type Name must be unique'],
+//     required: [true, 'Inventory Type Name is required'],
+//   },
+//   audit: { type: Object },
+// });
