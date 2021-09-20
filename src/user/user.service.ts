@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
-//import { createSecureServer } from 'http2';
-import { UserCreateDto } from 'tools/dtos/user.dto';
 import { UserModel } from 'tools/models/user.model';
+import { UserCreateDto } from 'tools/dtos/user.dto';
 
 const result: UserModel[] = [];
 
@@ -19,13 +18,23 @@ export class UserService {
         }
         return result;
     }
+    getUserById(id) : any {
+        const user = result.find(s => s.id == id);
+
+        if(!user) {
+            return 'user does not exist';
+        } else {
+            return user;
+        }
+    }
+
     createUser(body:UserCreateDto){
         const isExit = result.find(res => {
             res.email === body.email;
         });
         if(isExit) {
             return isExit;
-        }else {
+        } else {
             this.createMockUser(body);
             return result.slice(result.length - 1, result.length)
         }
@@ -38,5 +47,8 @@ export class UserService {
         user.name = data.name;
         user.surname = data.surname;
         user.password = data.password;
+        user.id = (Math.floor(Math.random() * 60) + 1).toString();
+        
+        result.push(user);
     }
 }
